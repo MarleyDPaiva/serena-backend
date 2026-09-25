@@ -1,0 +1,32 @@
+# Ambiente virtual
+venv/
+env/
+ENV/
+
+# Variáveis de ambiente
+.env
+.flaskenv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testes
+.pytest_cache/
+htmlcov/
+.coverage
