@@ -70,3 +70,23 @@ def atualizar_perfil():
 
     db.session.commit()
     return jsonify({"mensagem": "Perfil atualizado com sucesso"}), 200
+
+
+@profissionais_bp.route("/perfil", methods=["GET"])
+@tipo_requerido("profissional")
+def meu_perfil():
+    usuario_id = get_jwt_identity()
+    profissional = Profissional.query.filter_by(usuario_id=usuario_id).first()
+
+    if not profissional:
+        return jsonify({"erro": "Perfil não encontrado"}), 404
+
+    return jsonify({
+        "id": profissional.id,
+        "nome_completo": profissional.nome_completo,
+        "crp": profissional.crp,
+        "bio": profissional.bio,
+        "telefone": profissional.telefone,
+        "valor_consulta": float(profissional.valor_consulta) if profissional.valor_consulta else None,
+        "especialidades": [e.nome for e in profissional.especialidades],
+    }), 200
