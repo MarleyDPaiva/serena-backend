@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.extensions import db
 from app.models import Profissional, Especialidade
-from app.utils.decorator import tipo_requerido
+from app.utils.decorators import tipo_requerido
 from flask_jwt_extended import get_jwt_identity
 
 profissionais_bp = Blueprint("profissionais", __name__)

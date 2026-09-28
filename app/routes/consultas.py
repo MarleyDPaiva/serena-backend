@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.extensions import db
 from app.models import Consulta, Paciente, Profissional
-from app.utils.decorator import tipo_requerido
+from app.utils.decorators import tipo_requerido
 from flask_jwt_extended import get_jwt, get_jwt_identity
 from datetime import datetime
 
